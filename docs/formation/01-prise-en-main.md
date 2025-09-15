@@ -70,28 +70,66 @@ Rendez-vous directement sur l'[application](https://ggaillard.github.io/emoji-co
 
 ```sql
 -- Création de la table pour stocker les humeurs
-CREATE TABLE public.moods (
-    id BIGSERIAL PRIMARY KEY,
-    emoji TEXT NOT NULL,
-    language TEXT NOT NULL,
-    category TEXT,
-    comment TEXT,
-    code_line TEXT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+CREATE TABLE public.humeur (
+  id BIGSERIAL PRIMARY KEY,
+  nom TEXT NOT NULL CHECK (length(nom) >= 2 AND length(nom) <= 30),
+  emoji TEXT NOT NULL CHECK (length(emoji) >= 1 AND length(emoji) <= 10),
+  langage_prefere TEXT NOT NULL CHECK (
+    langage_prefere = ANY (ARRAY[
+      'javascript', 'typescript', 'python', 'java', 'csharp',
+      'php', 'cpp', 'rust', 'go', 'kotlin', 'swift', 'ruby'
+    ])
+  ),
+  autre_preference TEXT NOT NULL CHECK (
+    autre_preference = ANY (ARRAY[
+      'jeux-video', 'streaming', 'youtube', 'twitch', 'design', 'photoshop',
+      'video-editing', 'ui-ux', 'musique', 'spotify', 'production-musicale',
+      'podcasts', 'intelligence-artificielle', 'chatgpt', 'robotique',
+      'blockchain', 'apps-mobiles', 'tiktok', 'instagram', 'snapchat',
+      'sport', 'fitness', 'course', 'velo', 'netflix', 'series',
+      'cinema', 'disney', 'lecture', 'cours-en-ligne', 'langues',
+      'tutoriels', 'cuisine', 'voyage', 'shopping', 'nature'
+    ])
+  ),
+  commentaire TEXT CHECK ((commentaire IS NULL) OR (length(commentaire) <= 100)),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Activer Row Level Security
-ALTER TABLE public.moods ENABLE ROW LEVEL SECURITY;
-
--- Politique : lecture publique
-CREATE POLICY "Public read access" ON public.moods FOR SELECT USING (true);
-
--- Politique : écriture publique  
-CREATE POLICY "Public write access" ON public.moods FOR INSERT WITH CHECK (true);
+-- Colonnes calculées pour compatibilité
+ALTER TABLE public.humeur ADD COLUMN langage TEXT GENERATED ALWAYS AS (langage_prefere) STORED;
 
 -- Index pour optimiser les performances
-CREATE INDEX idx_moods_created_at ON public.moods(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_humeur_created_at ON public.humeur (created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_humeur_langage_prefere ON public.humeur (langage_prefere);
+CREATE INDEX IF NOT EXISTS idx_humeur_autre_preference ON public.humeur (autre_preference);
+
+-- Activer Row Level Security
+ALTER TABLE public.humeur ENABLE ROW LEVEL SECURITY;
+
+-- Politique : lecture publique (formation ouverte)
+CREATE POLICY "Lecture publique" ON public.humeur 
+FOR SELECT TO public USING (true);
+
+-- Politique : insertion publique avec anti-spam
+CREATE POLICY "Insertion contrôlée" ON public.humeur 
+FOR INSERT TO public 
+WITH CHECK (
+  nom IS NOT NULL AND length(nom) BETWEEN 2 AND 30 AND
+  emoji IS NOT NULL AND length(emoji) BETWEEN 1 AND 10 AND
+  langage_prefere IS NOT NULL AND
+  autre_preference IS NOT NULL AND
+  (commentaire IS NULL OR length(commentaire) <= 100)
+);
+
+-- Politique : suppression pour maintenance (enseignants)
+CREATE POLICY "Suppression maintenance" ON public.humeur 
+FOR DELETE TO public USING (true);
+
+-- Activer les changements temps réel
+ALTER PUBLICATION supabase_realtime ADD TABLE public.humeur;
+
 ```
+
 
 3. Cliquez **"Run"** ▶️
 
