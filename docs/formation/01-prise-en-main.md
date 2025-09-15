@@ -106,25 +106,6 @@ CREATE INDEX IF NOT EXISTS idx_humeur_autre_preference ON public.humeur (autre_p
 -- Activer Row Level Security
 ALTER TABLE public.humeur ENABLE ROW LEVEL SECURITY;
 
--- Politique : lecture publique (formation ouverte)
-CREATE POLICY "Lecture publique" ON public.humeur 
-FOR SELECT TO public USING (true);
-
--- Politique : insertion publique avec anti-spam
-CREATE POLICY "Insertion contrôlée" ON public.humeur 
-FOR INSERT TO public 
-WITH CHECK (
-  nom IS NOT NULL AND length(nom) BETWEEN 2 AND 30 AND
-  emoji IS NOT NULL AND length(emoji) BETWEEN 1 AND 10 AND
-  langage_prefere IS NOT NULL AND
-  autre_preference IS NOT NULL AND
-  (commentaire IS NULL OR length(commentaire) <= 100)
-);
-
--- Politique : suppression pour maintenance (enseignants)
-CREATE POLICY "Suppression maintenance" ON public.humeur 
-FOR DELETE TO public USING (true);
-
 -- Activer les changements temps réel
 ALTER PUBLICATION supabase_realtime ADD TABLE public.humeur;
 
