@@ -310,22 +310,6 @@ Réplication  Conflits     Éventuelle
 
 <!-- _backgroundColor: #efebe9 -->
 
-# Méthodologie appliquée
-## Conformité agrégation interne option D
-
-**✅ Focus WebSocket et historique**
-- Évolution chronologique : HTTP → AJAX → WebSocket  
-- Avantages techniques chiffrés : 90% réduction, 50ms latence
-
-**🎯 Théorème CAP approfondi**  
-- 3 stratégies détaillées avec architectures
-- Chiffres business : Amazon, Google, Facebook
-
-**💡 Chiffres clés mémorisables**
-- 4 métriques essentielles pour l'oral
-
-**🇫🇷 Glossaire français complet**
-- Toutes technologies traduites et expliquées
 
 ---
 
@@ -335,7 +319,6 @@ Réplication  Conflits     Éventuelle
 
 **WebSocket : De l'innovation technique à la transformation organisationnelle**
 
-Contact : [votre-email@domain.com]
 
 ---
 
