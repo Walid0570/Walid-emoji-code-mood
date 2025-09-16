@@ -311,16 +311,12 @@ Réplication  Conflits     Éventuelle
 <!-- _backgroundColor: #efebe9 -->
 
 
----
-
 # Questions ?
 
 ## Merci pour votre attention
 
 **WebSocket : De l'innovation technique à la transformation organisationnelle**
 
-
----
 
 ---
 
