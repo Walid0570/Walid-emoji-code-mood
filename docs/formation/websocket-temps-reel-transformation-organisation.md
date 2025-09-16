@@ -4,14 +4,12 @@ theme: default
 class: lead
 paginate: true
 backgroundColor: #fff
-backgroundImage: url('https://marp.app/assets/hero-background.svg')
 header: 'WebSocket et Temps Réel'
 footer: 'Présentation WebSocket | 2024'
 ---
 
 # WebSocket et temps réel
 ## Quand la technologie transforme l'organisation
-
 
 ---
 
@@ -30,9 +28,11 @@ Comment cette innovation technique transforme-t-elle les pratiques collaborative
 
 ---
 
+<!-- _backgroundColor: #f0f8ff -->
+
 # Chiffres clés à retenir
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/4CAF50/white?text=WebSocket)
+## 📊 **Performances WebSocket**
 
 - **90%** de réduction de la bande passante vs polling HTTP
 - **Sub-seconde** : latence WebSocket vs 3-30s polling  
@@ -80,15 +80,15 @@ Client: "Action utilisateur" → Serveur (instantané)
 
 ---
 
+<!-- _backgroundColor: #f5f5f5 -->
+
 # Leslie Lamport - Père des systèmes distribués
 ## Théorie appliquée aux WebSocket
-
-![bg right:30% 80%](https://via.placeholder.com/300x300/2196F3/white?text=Lamport)
 
 **Leslie Lamport (Prix Turing 2013)**
 Informaticien théoricien, inventeur de Paxos
 
-**3 concepts clés appliqués aux WebSocket :**
+## **3 concepts clés appliqués aux WebSocket :**
 
 🕒 **Horloges logiques** = **Ordre sans horloge**
 → Messages WebSocket arrivent dans le bon ordre
@@ -105,7 +105,7 @@ Informaticien théoricien, inventeur de Paxos
 
 > *"Un système distribué est celui où la panne d'un ordinateur que vous ne connaissez pas peut planter le vôtre."*
 
-**Pourquoi c'est important pour WebSocket ?**
+## **Pourquoi c'est important pour WebSocket ?**
 
 ❌ **Sans ces théories** → Messages désordonnés, conflits, incohérences
 
@@ -113,24 +113,28 @@ Informaticien théoricien, inventeur de Paxos
 
 ---
 
+<!-- _backgroundColor: #e8f5e8 -->
+
 # Applications WebSocket dans l'entreprise
 ## Cas d'usage transformants et adoption massive
 
-## 🤝 Collaboration temps réel
+## 🤝 **Collaboration temps réel**
 - **Google Docs** (2010) : 2 milliards de documents collaboratifs
 - **Figma** (2016) : 4 millions de designers connectés
 - **Slack** (2013) : 500 millions de messages/jour via WebSocket
 
-## 📊 Monitoring et dashboards  
+## 📊 **Monitoring et dashboards**  
 - **IoT** : 50 milliards d'objets connectés en 2024
 - **Analytics** : Netflix suit 1000+ métriques live
 - **Trading** : 100 000 transactions/seconde (<1ms latence)
 
 ---
 
+<!-- _backgroundColor: #fff3e0 -->
+
 # Chiffres d'adoption WebSocket
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/FF9800/white?text=85%25)
+## 📈 **Croissance massive**
 
 **Chiffres d'adoption à retenir :**
 
@@ -155,10 +159,12 @@ Dans un système distribué, **impossible** de garantir simultanément :
 
 ---
 
+<!-- _backgroundColor: #ffebee -->
+
 # STRATÉGIE CP - "Mode Bancaire"
 ## Cohérence + Tolérance aux Partitions
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/F44336/white?text=BANK)
+## 🏦 **Applications critiques**
 
 **Applications types :**
 - Trading haute fréquence, banque, e-commerce critique
@@ -172,10 +178,12 @@ Dans un système distribué, **impossible** de garantir simultanément :
 
 ---
 
+<!-- _backgroundColor: #e8f5e8 -->
+
 # STRATÉGIE AP - "Mode Social"  
 ## Disponibilité + Tolérance aux Partitions
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/4CAF50/white?text=SOCIAL)
+## 👥 **Applications collaboratives**
 
 **Applications types :**
 - Réseaux sociaux, collaboration créative, gaming
@@ -211,17 +219,19 @@ Réplication  Conflits     Éventuelle
 
 ---
 
+<!-- _backgroundColor: #f3e5f5 -->
+
 # Chiffres business de l'arbitrage
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/9C27B0/white?text=$$$)
+## 💰 **Impact financier de la latence**
 
-**Impact financier de la latence :**
+**Coût réel de la latence :**
 
 - **Amazon** : +1% latence = -1 milliard $ de CA
 - **Google** : +500ms latence = -20% de trafic  
 - **Facebook** : Choix AP = +40% engagement vs CP
 
-**STRATÉGIE HYBRIDE :**
+## **STRATÉGIE HYBRIDE :**
 - **E-commerce** → CP pour commandes + AP pour commentaires
 - **Optimisation** coût/performance selon criticité
 
@@ -230,29 +240,32 @@ Réplication  Conflits     Éventuelle
 # Synthèse - Les 3 transformations WebSocket
 ## Messages clés pour les managers SI
 
-## 🔧 1. TRANSFORMATION TECHNIQUE
+## 🔧 **1. TRANSFORMATION TECHNIQUE**
 - **Avant** : HTTP polling = 500ms + surcharge réseau
 - **Après** : WebSocket = 50ms + 90% économie bande passante
 
-## 👥 2. TRANSFORMATION ORGANISATIONNELLE  
+## 👥 **2. TRANSFORMATION ORGANISATIONNELLE**  
 - **Avant** : Collaboration séquentielle + conflits versions
 - **Après** : Co-création simultanée + sync automatique
 - **Résultat** : 40% gain productivité (Figma, Google Docs)
 
-## 📈 3. TRANSFORMATION MANAGÉRIALE
+## 📈 **3. TRANSFORMATION MANAGÉRIALE**
 - **Avant** : Planification rigide + validation centralisée
 - **Après** : Adaptation temps réel + intelligence distribuée
 
 ---
 
-# Chiffres à retenir absolument
+<!-- _backgroundColor: #e3f2fd -->
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/607D8B/white?text=MEMO)
+# Chiffres à retenir absolument
 
 ## 🎯 **Métriques clés WebSocket**
 
+### **Performance**
 - **50ms** : Latence WebSocket standard
 - **90%** : Réduction bande passante vs polling  
+
+### **Business Impact**
 - **40%** : Gain productivité collaboration temps réel
 - **99.99%** : Disponibilité architecture AP optimisée
 
@@ -260,12 +273,14 @@ Réplication  Conflits     Éventuelle
 
 ---
 
+<!-- _backgroundColor: #e8eaf6 -->
+
 # Évolutions et enjeux futurs
 ## WebRTC, Edge Computing et 5G
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/3F51B5/white?text=5G)
+## 🚀 **Technologies convergentes**
 
-**Technologies convergentes :**
+**Technologies émergentes :**
 - **WebRTC** : Communication peer-to-peer directe  
 - **Edge Computing** : Traitement au plus près des utilisateurs
 - **5G** : Latence ultra-faible (<1ms)
@@ -277,15 +292,15 @@ Réplication  Conflits     Éventuelle
 
 ---
 
-# Question clé pour les DSI
+<!-- _backgroundColor: #fce4ec -->
 
-![bg right:40% 80%](https://via.placeholder.com/400x300/E91E63/white?text=?)
+# Question clé pour les DSI
 
 ## 🤔 **Défi managérial 2024**
 
 > **Comment maintenir la gouvernance dans un monde hyperconnecté temps réel ?**
 
-**Enjeux émergents :**
+### **Enjeux émergents :**
 - Contrôle vs agilité temps réel
 - Sécurité des flux distribués  
 - Formation des équipes aux nouveaux outils
@@ -293,10 +308,10 @@ Réplication  Conflits     Éventuelle
 
 ---
 
+<!-- _backgroundColor: #efebe9 -->
+
 # Méthodologie appliquée
 ## Conformité agrégation interne option D
-
-![bg right:40% 80%](https://via.placeholder.com/400x300/795548/white?text=✓)
 
 **✅ Focus WebSocket et historique**
 - Évolution chronologique : HTTP → AJAX → WebSocket  
@@ -316,11 +331,13 @@ Réplication  Conflits     Éventuelle
 
 # Questions ?
 
-![bg right:50% 80%](https://via.placeholder.com/500x400/00BCD4/white?text=Q&A)
-
 ## Merci pour votre attention
 
 **WebSocket : De l'innovation technique à la transformation organisationnelle**
+
+Contact : [votre-email@domain.com]
+
+---
 
 ---
 
